@@ -1,1 +1,0 @@
-https://miro.com/welcomeonboard/cbNSkCP66tFkvHoblOag1bEZ9iq1KqTMIdykMdsu1oJF5LZ2HRztAPHteEu8HKRY
