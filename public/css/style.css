@@ -30,6 +30,10 @@ hr {
     height: 0.1rem;
 }
 
+textarea {
+    resize: none;
+}
+
 .color-yellow {
     background: #cea70c;
 }

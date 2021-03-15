@@ -15,4 +15,8 @@ class HomeController extends Controller
     {
         return view("pages.calctol");
     }
+    public function profile()
+    {
+        return view("pages.profile");
+    }
 }
