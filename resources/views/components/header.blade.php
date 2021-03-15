@@ -13,13 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item {{Request::is("beritatol") ? 'active' : 'non-active'}}">
                     <a class="nav-link" href="#">Berita Tol</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is("taksirtol") ? 'active' : 'non-active'}}">
                     <a class="nav-link" href="#">Taksir Tol</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Request::is("contact") ? 'active' : 'non-active'}}">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
