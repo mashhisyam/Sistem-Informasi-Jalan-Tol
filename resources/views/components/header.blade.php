@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{url('/')}}">
             <img class="logo-navbar" src="{{ asset('assets/images/app-logo.png') }}" alt="" srcset="">
         </a>
 
@@ -14,13 +14,13 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {{Request::is("beritatol") ? 'active' : 'non-active'}}">
-                    <a class="nav-link" href="#">Berita Tol</a>
+                    <a class="nav-link" href="{{ url('beritatol') }}">Berita Tol</a>
                 </li>
                 <li class="nav-item {{Request::is("taksirtol") ? 'active' : 'non-active'}}">
-                    <a class="nav-link" href="#">Taksir Tol</a>
+                    <a class="nav-link" href="{{url('taksirtol')}}">Taksir Tol</a>
                 </li>
                 <li class="nav-item {{Request::is("contact") ? 'active' : 'non-active'}}">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{url('contact')}}">Contact</a>
                 </li>
             </ul>
 
@@ -31,7 +31,7 @@
                         Jimmy
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{{url('profile')}}">Profile</a>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
                 </div>
