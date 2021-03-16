@@ -11,10 +11,6 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-center align-items-center">
             <div class="content-box h-100 w-100 p-4 m-4">
-                {{-- <div class="box-content-header">
-                    <h3>Taksir TOL</h3>
-                    <hr class="color-yellow">
-                </div> --}}
                 <div class="box-content-wrapper d-flex flex-row justify-content-center">
                     <div class="content-left mx-4 m-1 w-50">
                         <h4 class="font-weight-bold">Profile</h4>
@@ -37,9 +33,6 @@
                             <input type="text" class="input-box-text text-left" value="jimron@gmail.com" name="" id="">
                         </div>
                     </div>
-                    {{-- <div>
-                        <div class="color-yellow vertical-line mx-5"></div>
-                    </div> --}}
                     <div class="content-right mx-4 w-50">
                         <div class="content-right-one d-flex flex-column">
                             <h4 class="font-weight-bold">Detail Kartu</h4>

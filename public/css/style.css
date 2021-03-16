@@ -34,10 +34,21 @@ textarea {
     resize: none;
 }
 
+ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start : 0em;
+}
+
 .color-yellow {
     background: #cea70c;
 }
-
+.color-bluedark {
+    color: #171230;
+}
+.colorhr-bluedark {
+    background: #171230;
+}
 .logo-navbar {
     height: 3rem;
 }
@@ -137,6 +148,35 @@ textarea {
     color: white;
 }
 
+.btn-filteritem {
+    font-family: "Noto Sans HK",sans-serif;
+    color: #171230;
+    margin: 0 0.5rem;
+}
+.active {
+    font-weight: 700;
+    border-bottom: 0.2rem solid #82743e;
+}
+
+.content-item {
+    background: #f0f0f0;
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 45%;
+}
+
+.content-item img {
+    display: flex;
+    align-self: center;
+    height: 12rem;
+    width: 12rem;
+    padding: 0.4rem;
+    object-fit: cover;
+    object-position: center;
+}
+.content-highlight{
+    font-size: 0.8rem;
+}
 /* custom bootstrap*/
 
 .navbar {
@@ -155,7 +195,7 @@ textarea {
     position: absolute;
     width: 100%;
     right: 0rem;
-    bottom: 20px;
+    bottom: 1rem;
     left: 0rem;
     z-index: 10;
     padding-top: 20px;

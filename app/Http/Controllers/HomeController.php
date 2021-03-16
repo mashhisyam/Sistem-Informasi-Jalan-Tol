@@ -10,10 +10,13 @@ class HomeController extends Controller
     {
         return view("pages.home");
     }
-
     public function calcTol()
     {
         return view("pages.calctol");
+    }
+    public function newsTol()
+    {
+        return view("pages.newstol");
     }
     public function profile()
     {
