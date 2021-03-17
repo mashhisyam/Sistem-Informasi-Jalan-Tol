@@ -37,19 +37,19 @@ textarea {
 ul {
     margin-block-start: 0em;
     margin-block-end: 0em;
-    padding-inline-start : 0em;
+    padding-inline-start: 0em;
 }
-.font-main{
+.font-main {
     font-family: "Noto Sans HK", sans-serif;
     font-size: large;
     font-weight: 600;
-    color: #082B4D;
+    color: #082b4d;
 }
 .color-yellow {
     background: #cea70c;
 }
 .color-bluedark {
-    color: #082B4D;
+    color: #082b4d;
 }
 .colorhr-bluedark {
     background: #171230;
@@ -154,7 +154,7 @@ ul {
 }
 
 .btn-filteritem {
-    font-family: "Noto Sans HK",sans-serif;
+    font-family: "Noto Sans HK", sans-serif;
     color: #171230;
     margin: 0 0.5rem;
 }
@@ -179,18 +179,17 @@ ul {
     object-fit: cover;
     object-position: center;
 }
-.content-highlight{
+.content-highlight {
     font-size: 0.8rem;
 }
 
-.news-content-wrapper{
+.news-content-wrapper {
     background: #f9f9f9;
-    
 }
 .news-content h3 {
     font-family: "Noto Sans HK", sans-serif;
     font-weight: 600;
-    color: #082B4D;
+    color: #082b4d;
 }
 .news-content img {
     display: flex;
@@ -201,13 +200,13 @@ ul {
     object-fit: cover;
     object-position: center;
 }
-.highlight-news-item h3{
+.highlight-news-item h3 {
     font-family: "Noto Sans HK", sans-serif;
     font-size: small;
     font-weight: 600;
-    color: #082B4D;
+    color: #082b4d;
 }
-.highlight-news-item img{
+.highlight-news-item img {
     display: flex;
     align-self: start;
     height: 7rem;
@@ -215,9 +214,41 @@ ul {
     object-fit: cover;
     object-position: center;
 }
-.highlight-news-item p{
+.highlight-news-item p {
     font-size: x-small;
-    color: #082B4D;
+    color: #082b4d;
+}
+
+.wrapper-flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Noto Sans HK", sans-serif;
+}
+
+.title-logo {
+    font-family: "Noto Sans HK", sans-serif;
+}
+
+.bg-login {
+    background: url("/assets/images/login-bg.jpg") rgb(255, 255, 255, 50%);
+    background-size: cover;
+    background-blend-mode: lighten;
+    object-fit: cover;
+    object-position: center;
+}
+
+.input-box-line input {
+    border-style: none;
+    margin: 0.7rem 0rem;
+    padding: 0.5rem 0rem;
+    background-color: transparent;
+    outline: transparent;
+    border-bottom: 0.2rem solid #082b4d;
+}
+.input-box-line input:focus {
+    border-bottom: 0.2rem solid #e8bc0d;
 }
 /* custom bootstrap*/
 
