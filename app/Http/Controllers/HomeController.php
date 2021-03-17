@@ -18,6 +18,10 @@ class HomeController extends Controller
     {
         return view("pages.newstol");
     }
+    public function loadNews($id)
+    {
+        return view("pages.viewnews", ["id" => $id]);
+    }
     public function profile()
     {
         return view("pages.profile");

@@ -39,12 +39,17 @@ ul {
     margin-block-end: 0em;
     padding-inline-start : 0em;
 }
-
+.font-main{
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: large;
+    font-weight: 600;
+    color: #082B4D;
+}
 .color-yellow {
     background: #cea70c;
 }
 .color-bluedark {
-    color: #171230;
+    color: #082B4D;
 }
 .colorhr-bluedark {
     background: #171230;
@@ -66,7 +71,7 @@ ul {
 
 .feature-circle-item {
     border-radius: 10rem;
-    border: 0.3rem solid #adad21;
+    border: 0.3rem solid #cea70c;
     padding: 1rem;
     width: 8rem;
     height: 8rem;
@@ -176,6 +181,43 @@ ul {
 }
 .content-highlight{
     font-size: 0.8rem;
+}
+
+.news-content-wrapper{
+    background: #f9f9f9;
+    
+}
+.news-content h3 {
+    font-family: "Noto Sans HK", sans-serif;
+    font-weight: 600;
+    color: #082B4D;
+}
+.news-content img {
+    display: flex;
+    align-self: center;
+    height: 50%;
+    width: 100%;
+    padding: 0.4rem;
+    object-fit: cover;
+    object-position: center;
+}
+.highlight-news-item h3{
+    font-family: "Noto Sans HK", sans-serif;
+    font-size: small;
+    font-weight: 600;
+    color: #082B4D;
+}
+.highlight-news-item img{
+    display: flex;
+    align-self: start;
+    height: 7rem;
+    width: 7rem;
+    object-fit: cover;
+    object-position: center;
+}
+.highlight-news-item p{
+    font-size: x-small;
+    color: #082B4D;
 }
 /* custom bootstrap*/
 

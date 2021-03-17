@@ -20,4 +20,5 @@ Route::get('/taksirtol', [HomeController::class, 'calcTol']);
 Route::get('/profile', [HomeController::class, 'profile']);
 Route::prefix('/beritatol')->group(function () {
     Route::get('/', [HomeController::class, 'newsTol']);
+    Route::get('/{id}', [HomeController::class, 'loadnews']);
 });
