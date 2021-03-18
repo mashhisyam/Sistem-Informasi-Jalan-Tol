@@ -4,7 +4,7 @@
 @section('content-base')
 
 <div>
-    {{-- corousel --}}
+    {{-- carousel --}}
     @include('components.titlebar', ["title" => "Taksir Tol"])
 
     {{-- content --}}

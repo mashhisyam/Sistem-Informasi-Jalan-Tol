@@ -23,3 +23,4 @@ Route::prefix('/beritatol')->group(function () {
     Route::get('/', [HomeController::class, 'newsTol']);
     Route::get('/{id}', [HomeController::class, 'loadnews']);
 });
+
