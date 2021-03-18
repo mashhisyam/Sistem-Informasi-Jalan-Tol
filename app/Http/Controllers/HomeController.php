@@ -20,11 +20,20 @@ class HomeController extends Controller
     }
     public function loadNews($id)
     {
-        return view("pages.viewnews", ["id" => $id]);
+        if ($id == 1) {
+            return view("pages.viewnews.viewnews1", ["id" => $id]);
+        } else if ($id == 2) {
+            return view("pages.viewnews.viewnews2", ["id" => $id]);
+        } else {
+            return view("pages.home");
+        }
+
+
+        return view("pages.viewnews.viewnews3", ["id" => $id == 3]);
+        return view("pages.viewnews.viewnews4", ["id" => $id == 4]);
     }
     public function profile()
     {
         return view("pages.profile");
     }
-
 }
