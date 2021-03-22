@@ -19,6 +19,7 @@ Route::get('/login', [UserController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/taksirtol', [HomeController::class, 'calcTol']);
 Route::get('/profile', [HomeController::class, 'profile']);
+Route::get('/contact', [HomeController::class, 'contact']);
 Route::prefix('/beritatol')->group(function () {
     Route::get('/', [HomeController::class, 'newsTol']);
     Route::get('/{id}', [HomeController::class, 'loadnews']);
