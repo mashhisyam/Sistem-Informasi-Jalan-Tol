@@ -18,20 +18,20 @@ Register
 
             <div class="input-box-line d-flex flex-row w-75">
                 <div class="input-box-line d-flex flex-column px-2 w-50">
-                    <label class="mb-1" for="firstname"><strong>{{ __('Nama Depan') }}</strong></label>
-                    <input id="firstname" type="text" class="my-2 @error('firstname') is-invalid @enderror"
-                        name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
-                    @error('firstname')
+                    <label class="mb-1" for="fullname"><strong>{{ __('Nama Lengkap') }}</strong></label>
+                    <input id="fullname" type="text" class="my-2 @error('fullname') is-invalid @enderror"
+                        name="fullname" value="{{ old('fullname') }}" required autocomplete="name" autofocus>
+                    @error('fullname')
                     <span style="color: red">
                         {{$message}}
                     </span>
                     @enderror
                 </div>
                 <div class="input-box-line d-flex flex-column px-2 w-50">
-                    <label class="mb-1" for="lastname"><strong>{{ __('Nama Belakang') }}</strong></label>
-                    <input id="lastname" type="text" class="my-2 @error('lastname') is-invalid @enderror"
-                        name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-                    @error('lastname')
+                    <label class="mb-1" for="phonenumber"><strong>{{ __('Nomor Handphone') }}</strong></label>
+                    <input id="phonenumber" type="number" class="my-2 @error('phonenumber') is-invalid @enderror"
+                        name="phonenumber" value="{{ old('phonenumber') }}" required autocomplete="mobile" autofocus>
+                    @error('phonenumber')
                     <span style="color: red">
                         {{$message}}
                     </span>
