@@ -300,3 +300,25 @@ ul {
     opacity: 0.5;
     transition: opacity 0.6s ease;
 }
+
+.btn-login {
+    background: #082b4d;
+    color: #f0f0f0;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+}
+.btn-login:hover {
+    background: #0c4176;
+    color: #f0f0f0;
+}
+
+.btn-register {
+    background: #cea70c;
+    color: #f0f0f0;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+}
+.btn-register:hover {
+    background: #dbb10a;
+    color: #f0f0f0;
+}
