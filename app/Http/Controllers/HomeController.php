@@ -42,4 +42,7 @@ class HomeController extends Controller
     {
         return view("pages.profile");
     }
+    public function contact(){
+        return view("pages.contact");
+    }
 }
