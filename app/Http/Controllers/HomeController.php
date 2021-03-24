@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -22,27 +24,21 @@ class HomeController extends Controller
     }
     public function newsTol()
     {
-        return view("pages.newstol");
+        $newsDatas = DB::table("news")->get("*");
+        return view("pages.newstol", ["newsDatas" => $newsDatas]);
     }
     public function loadNews($id)
     {
-        if ($id == 1) {
-            return view("pages.viewnews.viewnews1", ["id" => $id]);
-        } else if ($id == 2) {
-            return view("pages.viewnews.viewnews2", ["id" => $id]);
-        } else {
-            return view("pages.home");
-        }
-
-
-        return view("pages.viewnews.viewnews3", ["id" => $id == 3]);
-        return view("pages.viewnews.viewnews4", ["id" => $id == 4]);
+        $newsdata = DB::table('news')->where('id', $id)->first("*");
+        $reletedNews = DB::table('news')->select("*")->whereNotIn('id', [$id])->inRandomOrder()->limit(2)->get();
+        return view("pages.viewnews", ["newsdata" => $newsdata, "releted" => $reletedNews]);
     }
     public function profile()
     {
-        return view("pages.profile");
+        return view("pages.profile", ['profile' => Auth()->user()]);
     }
-    public function contact(){
+    public function contact()
+    {
         return view("pages.contact");
     }
 }

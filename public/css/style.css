@@ -165,8 +165,8 @@ ul {
 
 .content-item {
     background: #f0f0f0;
-    margin: 1rem;
-    padding: 0.5rem;
+    padding: 0.05rem;
+    margin: 0.5rem;
     width: 45%;
 }
 
@@ -175,7 +175,6 @@ ul {
     align-self: center;
     height: 12rem;
     width: 12rem;
-    padding: 0.4rem;
     object-fit: cover;
     object-position: center;
 }
@@ -199,6 +198,9 @@ ul {
     padding: 0.4rem;
     object-fit: cover;
     object-position: center;
+}
+.highlight-news-item {
+    background: rgba(0, 0, 0, 0.05);
 }
 .highlight-news-item h3 {
     font-family: "Noto Sans HK", sans-serif;

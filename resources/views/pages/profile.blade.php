@@ -17,20 +17,22 @@
                         <img class="rounded w-50 my-3 img-fluid" src="{{ asset('assets/images/profile/jimmy.jpg') }}">
                         <div class="input-box-wrapper my-3">
                             <h6>Nama Lengkap</h6>
-                            <input type="text" class="input-box-text text-left" value="Jimmy Neutron" name="" id="">
+                            <input type="text" class="input-box-text text-left" value="{{__($profile->fullname)}}"
+                                name="" id="">
                         </div>
                         <div class="input-box-wrapper my-3">
                             <h6>Alamat Lengkap</h6>
-                            <textarea class="input-box-text text-left" rows="3">Perum Kota Permata Blok B3.NO 7,CIsereuh Purwakarta, Jawa Barat
-                            </textarea>
+                            <textarea class="input-box-text text-left" rows="3">{{__($profile->address)}}</textarea>
                         </div>
                         <div class="input-box-wrapper my-3">
                             <h6>Nomor Telephone</h6>
-                            <input type="text" class="input-box-text text-left" value="082115593609" name="" id="">
+                            <input type="text" class="input-box-text text-left" value="{{__($profile->phonenumber)}}"
+                                name="" id="">
                         </div>
                         <div class="input-box-wrapper my-3">
                             <h6>Email</h6>
-                            <input type="text" class="input-box-text text-left" value="jimron@gmail.com" name="" id="">
+                            <input type="text" class="input-box-text text-left" value="{{__($profile->email)}}" name=""
+                                id="">
                         </div>
                     </div>
                     <div class="content-right mx-4 w-50">
@@ -39,7 +41,8 @@
                             <img class="rounded w-75 my-3 img-fluid" src="{{ asset('assets/images/card-toll.jpg') }}">
                             <div class="input-box-wrapper my-2">
                                 <h6>Nama Pemilik</h6>
-                                <input type="text" class="input-box-text text-left" value="Jimmy Neutron" name="" id="">
+                                <input type="text" class="input-box-text text-left" value="{{__($profile->fullname)}}"
+                                    name="" id="">
                             </div>
                             <div class="input-box-wrapper my-2">
                                 <h6>Nomor Kartu</h6>

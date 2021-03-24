@@ -22,10 +22,10 @@ Auth::routes();
 // Route::get('/login', [UserController::class, 'index']);
 // Route::get('/register', [UserController::class, 'register']);
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/taksirtol', [HomeController::class, 'calcTol']);
-Route::get('/profile', [HomeController::class, 'profile']);
-Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::prefix('/beritatol')->group(function () {
-    Route::get('/', [HomeController::class, 'newsTol']);
-    Route::get('/{id}', [HomeController::class, 'loadnews']);
+    Route::get('/', [HomeController::class, 'newsTol'])->name('newstol');
+    Route::get('/{id}', [HomeController::class, 'loadnews'])->name('shownews');
 });
