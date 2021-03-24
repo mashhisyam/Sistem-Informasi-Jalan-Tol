@@ -5,7 +5,7 @@
 
 <div>
     {{-- carousel --}}
-    @include('components.titlebar', ["title" => "Taksir Tol"])
+    @include('components.titlebar', ["title" => "Taksir Biaya Tol", 'poster' => "assets/images/title-bar-bg-2.jpg"])
 
     {{-- content --}}
     <div class="container-fluid">

@@ -5,7 +5,7 @@
 
 <div>
     {{-- corousel --}}
-    @include('components.titlebar', ["title" => "Profile"])
+    @include('components.titlebar', ["title" => "Profile", 'poster' => "assets/images/title-bar-bg-2.jpg"])
 
     {{-- content --}}
     <div class="container-fluid">
