@@ -16,53 +16,85 @@
                     <hr class="color-yellow">
                 </div>
                 <div class="box-content-wrapper d-flex flex-row justify-content-center">
-                    <div class="content-left m-1 w-25">
-                        <div class="input-box-wrapper my-3">
-                            <h6>Gerbang Masuk</h6>
-                            <input type="text" class="input-box-text" name="" id="">
-                        </div>
-                        <div class="input-box-wrapper my-3">
-                            <h6>Gerbang Keluar</h6>
-                            <input type="text" class="input-box-text" name="" id="">
-                        </div>
-                        <div class="btn-submit-wrapper d-flex justify-content-center">
-                            <button type="submit" class="btn btn-yellow">Taksir</button>
-                        </div>
+                    <div class="content-left d-flex align-items-center @if($routedata == null) p-5  @endif m-1 w-25">
+                        <form action="{{route('taksirtol')}}" method="post">
+                            @csrf
+                            <div class="input-box-wrapper my-3">
+                                <label>Rute</label>
+                                <select class="input-box-text p-2" name="rute" id="rute">
+                                    {{-- <option selected value="null">Pilih rute yang disediakan</option> --}}
+                                    @foreach ($routelist as $item)
+
+                                    <option @if ($item->id == old('rute') || $routedata != null && $routedata->id ==
+                                        $item->id)selected @endif
+                                        value="{{__($item->id)}}">
+                                        {{__($item->rute)}}
+                                    </option>
+
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="btn-submit-wrapper d-flex justify-content-center">
+                                <button type="submit" class="btn btn-yellow">Taksir</button>
+                            </div>
+                        </form>
                     </div>
+
+                    @if ($routedata != null)
+
                     <div>
                         <div class="color-yellow vertical-line mx-5"></div>
                     </div>
-                    <div class="content-right">
-                        <div class="content-right-one d-flex flex-row">
-                            <div class="content-one-left mx-4">
-                                <div class="input-box-wrapper my-2">
-                                    <h6>Gerbang Masuk</h6>
-                                    <input type="text" class="input-box-text" name="" id="">
-                                </div>
-                                <div class="input-box-wrapper my-2">
-                                    <h6>Golongan Kendaraan</h6>
-                                    <input type="text" class="input-box-text" name="" id="">
+                    <div class="content-right w-50 d-flex flex-column align-items-center">
+                        <div class="d-flex w-75">
+                            <div class="p-2 w-100">
+                                <span>Gerbang Masuk</span>
+                                <div class="input-box-text">
+                                    <span>{{__($routename['asal'])}}</span>
                                 </div>
                             </div>
-                            <div class="content-one-right mx-4">
-                                <div class="input-box-wrapper my-2">
-                                    <h6>Gerbang Keluar</h6>
-                                    <input type="text" class="input-box-text" name="" id="">
-                                </div>
-                                <div class="input-box-wrapper my-2">
-                                    <h6>Jarak Tempuh</h6>
-                                    <input type="text" class="input-box-text" name="" id="">
+                            <div class="p-2 w-100">
+                                <span>Gerbang Keluar</span>
+                                <div class="input-box-text">
+                                    <span>{{__($routename['tujuan'])}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="content-right-two d-flex flex-column align-items-center m-3">
-                            <h5>Total Biaya</h5>
-                            <p class="content-highlight-cost">
-                                Rp.1.000.000
-                            </p>
+                        <div class="d-flex flex-wrap w-75">
+                            <div class="p-2 w-100">
+                                <span>Golongan 1</span>
+                                <div class="input-box-text">
+                                    <span>Rp. {{__(number_format($routedata->gol1, 2, ',', '.'))}}</span>
+                                </div>
+                            </div>
+                            <div class="p-2 w-100">
+                                <span>Golongan 2</span>
+                                <div class="input-box-text">
+                                    <span>Rp. {{__(number_format($routedata->gol2, 2, ',', '.'))}}</span>
+                                </div>
+                            </div>
+                            <div class="p-2 w-100">
+                                <span>Golongan 3</span>
+                                <div class="input-box-text">
+                                    <span>Rp. {{__(number_format($routedata->gol3, 2, ',', '.'))}}</span>
+                                </div>
+                            </div>
+                            <div class="p-2 w-100">
+                                <span>Golongan 4</span>
+                                <div class="input-box-text">
+                                    <span>Rp. {{__(number_format($routedata->gol4, 2, ',', '.'))}}</span>
+                                </div>
+                            </div>
+                            <div class="p-2 w-100">
+                                <span>Golongan 5</span>
+                                <div class="input-box-text">
+                                    <span>Rp. {{__(number_format($routedata->gol5, 2, ',', '.'))}}</span>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
+
+                    @endif
                 </div>
             </div>
         </div>

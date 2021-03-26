@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -18,9 +19,21 @@ class HomeController extends Controller
     {
         return view("pages.home");
     }
-    public function calcTol()
+    public function calcTol(Request $request)
     {
-        return view("pages.calctol");
+        $routeId = $request->get('rute');
+        $routeList = DB::table('tolgate')->select(['id', 'rute'])->get();
+        if ($routeId != null) {
+            $routeData = DB::table('tolgate')->where('id', $routeId)->first();
+            $routename = [
+                'asal' => Str::substr($routeData->rute, 0, strpos($routeData->rute, ' -')),
+                'tujuan' => Str::substr($routeData->rute, strpos($routeData->rute, ' - ') + 2, strlen($routeData->rute)),
+            ];
+        } else {
+            $routeData = null;
+            $routename = null;
+        }
+        return view("pages.calctol", ['routelist' => $routeList, 'routedata' => $routeData, 'routename' => $routename]);
     }
     public function newsTol()
     {
