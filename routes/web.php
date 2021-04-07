@@ -23,6 +23,7 @@ Auth::routes();
 // Route::get('/register', [UserController::class, 'register']);
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
+Route::post('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::prefix('/beritatol')->group(function () {
