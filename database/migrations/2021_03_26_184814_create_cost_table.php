@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTolgateTable extends Migration
+class CreateCostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTolgateTable extends Migration
      */
     public function up()
     {
-        Schema::create('tolgate', function (Blueprint $table) {
+        Schema::create('tarif', function (Blueprint $table) {
             $table->id();
-            $table->string('rute');
+            $table->string('masuk');
+            $table->string('keluar');
             $table->bigInteger('gol1', false);
             $table->bigInteger('gol2', false);
             $table->bigInteger('gol3', false);

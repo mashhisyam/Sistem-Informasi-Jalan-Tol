@@ -16,19 +16,37 @@
                     <hr class="color-yellow">
                 </div>
                 <div class="box-content-wrapper d-flex flex-row justify-content-center">
-                    <div class="content-left d-flex align-items-center @if($routedata == null) p-5  @endif m-1 w-25">
+                    <div
+                        class="content-left d-flex align-items-center justify-content-center @if($routedata == null) p-5 w-50 @else w-25 @endif m-1">
                         <form action="{{route('taksirtol')}}" method="post">
                             @csrf
                             <div class="input-box-wrapper my-3">
-                                <label>Rute</label>
-                                <select class="input-box-text p-2" name="rute" id="rute">
-                                    {{-- <option selected value="null">Pilih rute yang disediakan</option> --}}
-                                    @foreach ($routelist as $item)
+                                <label>Gerbang masuk</label>
+                                <select class="input-box-text h-25 p-2" name="ingate" id="ingate">
+                                    <option selected value="null">Pilih gerbang tol masuk</option>
+                                    @foreach ($ingate as $item)
 
-                                    <option @if ($item->id == old('rute') || $routedata != null && $routedata->id ==
-                                        $item->id)selected @endif
-                                        value="{{__($item->id)}}">
-                                        {{__($item->rute)}}
+                                    <option value="{{__($item->masuk)}}" @if($item->masuk == old('masuk') || $routedata
+                                        != null && $routedata->masuk ==
+                                        $item->masuk) selected
+                                        @endif>
+                                        {{ Str::ucfirst($item->masuk) }}
+                                    </option>
+
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="input-box-wrapper my-3">
+                                <label>Gerbang keluar</label>
+                                <select class="input-box-text h-25 p-2" name="outgate" id="outgate">
+                                    <option selected value="null">Pilih gerbang tol keluar</option>
+                                    @foreach ($outgate as $item)
+
+                                    <option value="{{__($item->keluar)}}" @if($item->keluar == old('keluar') ||
+                                        $routedata != null && $routedata->keluar ==
+                                        $item->keluar) selected
+                                        @endif>
+                                        {{ Str::ucfirst($item->keluar) }}
                                     </option>
 
                                     @endforeach
@@ -50,13 +68,13 @@
                             <div class="p-2 w-100">
                                 <span>Gerbang Masuk</span>
                                 <div class="input-box-text">
-                                    <span>{{__($routename['asal'])}}</span>
+                                    <span>{{Str::ucfirst($routedata->masuk)}}</span>
                                 </div>
                             </div>
                             <div class="p-2 w-100">
                                 <span>Gerbang Keluar</span>
                                 <div class="input-box-text">
-                                    <span>{{__($routename['tujuan'])}}</span>
+                                    <span>{{Str::ucfirst($routedata->keluar)}}</span>
                                 </div>
                             </div>
                         </div>

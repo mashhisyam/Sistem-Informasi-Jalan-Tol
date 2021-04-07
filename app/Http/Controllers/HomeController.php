@@ -22,18 +22,17 @@ class HomeController extends Controller
     public function calcTol(Request $request)
     {
         $routeId = $request->get('rute');
-        $routeList = DB::table('tolgate')->select(['id', 'rute'])->get();
-        if ($routeId != null) {
-            $routeData = DB::table('tolgate')->where('id', $routeId)->first();
-            $routename = [
-                'asal' => Str::substr($routeData->rute, 0, strpos($routeData->rute, ' -')),
-                'tujuan' => Str::substr($routeData->rute, strpos($routeData->rute, ' - ') + 2, strlen($routeData->rute)),
-            ];
+        $inName = $request->get('ingate');
+        $outName = $request->get('outgate');
+        $ingate = DB::table('tarif')->select(['masuk'])->groupBy('masuk')->get();
+        $outgate = DB::table('tarif')->select(['keluar'])->groupByRaw('keluar')->get();
+        if ($inName != null && $outName != null) {
+            $routeData = DB::table('tarif')->where([['masuk', $inName], ['keluar', $outName],])->first();
         } else {
             $routeData = null;
             $routename = null;
         }
-        return view("pages.calctol", ['routelist' => $routeList, 'routedata' => $routeData, 'routename' => $routename]);
+        return view("pages.calctol", ['ingate' => $ingate, 'outgate' => $outgate, 'routedata' => $routeData]);
     }
     public function newsTol()
     {
