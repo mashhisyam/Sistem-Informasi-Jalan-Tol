@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class HomeController extends Controller
 {
@@ -22,18 +24,17 @@ class HomeController extends Controller
     public function calcTol(Request $request)
     {
         $routeId = $request->get('rute');
-        $routeList = DB::table('tolgate')->select(['id', 'rute'])->get();
-        if ($routeId != null) {
-            $routeData = DB::table('tolgate')->where('id', $routeId)->first();
-            $routename = [
-                'asal' => Str::substr($routeData->rute, 0, strpos($routeData->rute, ' -')),
-                'tujuan' => Str::substr($routeData->rute, strpos($routeData->rute, ' - ') + 2, strlen($routeData->rute)),
-            ];
+        $inName = $request->get('ingate');
+        $outName = $request->get('outgate');
+        $ingate = DB::table('tarif')->select(['masuk'])->groupBy('masuk')->get();
+        $outgate = DB::table('tarif')->select(['keluar'])->groupByRaw('keluar')->get();
+        if ($inName != null && $outName != null) {
+            $routeData = DB::table('tarif')->where([['masuk', $inName], ['keluar', $outName],])->first();
         } else {
             $routeData = null;
             $routename = null;
         }
-        return view("pages.calctol", ['routelist' => $routeList, 'routedata' => $routeData, 'routename' => $routename]);
+        return view("pages.calctol", ['ingate' => $ingate, 'outgate' => $outgate, 'routedata' => $routeData]);
     }
     public function newsTol()
     {
@@ -50,8 +51,55 @@ class HomeController extends Controller
     {
         return view("pages.profile", ['profile' => Auth()->user()]);
     }
-    public function contact()
-    {
-        return view("pages.contact");
+    function showContactForm(){
+        return view('pages.contact');
+    }
+
+    function sendMail(Request $request){
+        
+        $subject = "Contact dari " . $request->input('name');
+        $name = $request->input('name');
+        $emailAddress = $request->input('email');
+        $phone = $request->input('phone');
+        $subject = $request->input('subject');
+        $message = $request->input('message');
+
+        $mail = new PHPMailer(true);                             
+        try {
+
+            // Pengaturan Server                              
+            $mail->isSMTP();                                     
+            $mail->Host = 'smtp.gmail.com';                  
+            $mail->SMTPAuth = true;                              
+            $mail->Username = 'acmilrizqy17@gmail.com';                 
+            $mail->Password = 'rizqyghaniyyu1987';                           
+            $mail->SMTPSecure = 'ssl';                           
+            $mail->Port = 465;                                    
+
+            // Siapa yang mengirim email
+            $mail->setFrom($emailAddress, $name);
+
+            // Siapa yang akan menerima email
+            $mail->addAddress('acmilrizqy17@gmail.com', 'Rizqy Fadhilah');    
+                       
+
+            // ke siapa akan kita balas emailnya
+            $mail->addReplyTo($emailAddress, $name);
+            
+            //Content
+            $mail->isHTML(true);                                  
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            $mail->AltBody = $message;
+
+            $mail->send();
+
+            $request->session()->flash('status', 'Terima kasih, kami sudah menerima email anda.');
+            return view('pages.contact');
+
+        } catch (Exception $e) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }
     }
 }
