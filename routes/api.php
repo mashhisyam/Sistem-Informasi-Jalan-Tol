@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users', 'apicontroller@get_all_users');
+Route::get('users', 'apicontroller@get_all_users');
+Route::post('users/tambah_users', 'apicontroller@insert_data_users');
