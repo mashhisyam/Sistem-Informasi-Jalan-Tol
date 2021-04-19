@@ -12,5 +12,6 @@
 @yield('content-base')
 
 {{-- footer --}}
+@include('components.footer')
 
 @endsection

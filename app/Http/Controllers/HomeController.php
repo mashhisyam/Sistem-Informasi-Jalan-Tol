@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
 class HomeController extends Controller
 {
 
@@ -64,7 +65,8 @@ class HomeController extends Controller
         $subject = $request->input('subject');
         $message = $request->input('message');
 
-        $mail = new PHPMailer(true);                             
+
+        $mail = new PHPMailer();                             
         try {
 
             // Pengaturan Server                              

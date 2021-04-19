@@ -153,6 +153,7 @@ ul {
     color: white;
 }
 
+
 .btn-filteritem {
     font-family: "Noto Sans HK", sans-serif;
     color: #171230;
@@ -165,8 +166,8 @@ ul {
 
 .content-item {
     background: #f0f0f0;
-    padding: 0.05rem;
-    margin: 0.5rem;
+    margin: 1rem;
+    padding: 0.5rem;
     width: 45%;
 }
 
@@ -175,6 +176,7 @@ ul {
     align-self: center;
     height: 12rem;
     width: 12rem;
+    padding: 0.4rem;
     object-fit: cover;
     object-position: center;
 }
@@ -198,9 +200,6 @@ ul {
     padding: 0.4rem;
     object-fit: cover;
     object-position: center;
-}
-.highlight-news-item {
-    background: rgba(0, 0, 0, 0.05);
 }
 .highlight-news-item h3 {
     font-family: "Noto Sans HK", sans-serif;
@@ -302,35 +301,14 @@ ul {
     opacity: 0.5;
     transition: opacity 0.6s ease;
 }
-
-.btn-login {
-    background: #082b4d;
-    color: #f0f0f0;
-    padding: 0.5rem 2rem;
-    border-radius: 1rem;
-}
-.btn-login:hover {
-    background: #0c4176;
-    color: #f0f0f0;
-}
-
-.btn-register {
-    background: #cea70c;
-    color: #f0f0f0;
-    padding: 0.5rem 2rem;
-    border-radius: 1rem;
-}
-.btn-register:hover {
-    background: #dbb10a;
-    color: #f0f0f0;
-}
 .mli-btn {
-    font-size: 0.75rem;
+    font-size: .75rem;
 }
-.mli-btn mli-btn--primary btn-block {
+.mli-btn mli-btn--primary btn-block{
     background: #d5b143;
     color: #353437;
     border: 2px solid #d5b143;
+    
 }
 .mli-btn {
     display: inline-block;
@@ -343,19 +321,19 @@ ul {
     -ms-user-select: none;
     user-select: none;
     line-height: 1.5;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out;
     font-weight: 700;
-    padding: 0.75em 2.5em;
-    font-size: 0.75rem;
+    padding: .75em 2.5em;
+    font-size: .75rem;
 }
 .btn-block {
     display: block;
     width: 100%;
 }
 
-button.mli-btn.mli-btn--primary.btn-block {
+button.mli-btn.mli-btn--primary.btn-block{
     color: #353437;
-    font-family: "Times New Roman", Times, serif;
+    font-family: Verdana;
     font-weight: bold;
     font-size: 20px;
     background-color: #d5b143;
