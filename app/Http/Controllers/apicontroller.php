@@ -30,12 +30,29 @@ class apicontroller extends Controller
 
     public function update_data_users(Request $request, $id)
     {
-        $check = UsersModel::firstWhere('users_id', $id);
+        $check = UsersModel::firstWhere('id', $id);
         if ($check) {
             echo 'data yang anda cari tersedia';
+
             $data_users = UsersModel::find($id);
+            $data_users->fullname = $request->fullname;
+            $data_users->phonenumber = $request->phonenumber;
+            $data_users->address = $request->address;
+            $data_users->email = $request->email;
+            $data_users->password = $request->password;
+            $data_users->save();
+            return response([
+                'status' => 'OK',
+                'message' => 'Users Berhasil Dirubah',
+                'status' => $data_users
+            ], 200);
         } else {
             echo 'tidak ada';
+            return response([
+                'status' => 'Not Found',
+                'message' => 'Users Tidak Ditemukan',
+                
+            ], 404);
         }
     }
 }
