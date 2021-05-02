@@ -51,7 +51,23 @@ class apicontroller extends Controller
             return response([
                 'status' => 'Not Found',
                 'message' => 'Users Tidak Ditemukan',
-                
+
+            ], 404);
+        }
+    }
+    public function delete_data_user($id)
+    {
+        $check_user = UsersModel::firstwhere('id', $id);
+        if ($check_user) {
+            UsersModel::destroy($id);
+            return response([
+                'status' => 'Ok',
+                'message' => 'Data Dihapus',
+            ], 200);
+        } else {
+            return response([
+                'status' => 'Not Found',
+                'message' => 'Id User Tidak Ditemukan'
             ], 404);
         }
     }
