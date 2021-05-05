@@ -9,7 +9,7 @@
           </p>
         </div>
         <div class="col-md-2 ml-auto">
-          <h3>Berira Tol</h3>
+          <h3>Berita Tol</h3>
           <ul class="list-unstyled links">
             <li><a href="{{ url('beritatol') }}">Berita Terbaru Tol</a></li>
             {{-- <li><a href="#">Features</a></li>

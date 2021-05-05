@@ -24,10 +24,14 @@
                   <label class="contact__label">Follow us on:</label>
                   <div class="social-links">
                     <a href="https://id-id.facebook.com/official.jasamarga/" class="btn-icon"><i class="fab fa-facebook-f" ><img src="{{ asset('assets/images/facebook-removebg-preview.png') }}" alt="image" height="30" width="30"></i></a>
-                    <a href="https://twitter.com/ptjasamarga?lang=en" class="btn-icon"><i class="fab fa-twitter">><img src="{{ asset('assets/images/twitter-removebg-preview.png') }}" alt="image" height="30" width="30"></i></a>
+                    <a href="https://twitter.com/ptjasamarga?lang=en" class="btn-icon"><i class="fab fa-twitter"><img src="{{ asset('assets/images/twitter-removebg-preview.png') }}" alt="image" height="30" width="30"></i></a>
                     <a href="https://www.instagram.com/official.jasamarga/?hl=en" class="btn-icon"><i class="fab fa-instagram"><img src="{{ asset('assets/images/instagram-removebg-preview.png') }}" alt="image" height="30" width="30"></i></a>
                     <a href="https://www.youtube.com/channel/UCfLpB-6ummYUPjwckxjl9TA" class="btn-icon"><i class="fab fa-youtube"><img src="{{ asset('assets/images/youtube-removebg-preview.png') }}" alt="image" height="30" width="30"></i></a>
                   </div>
+                  <div style="width: 300px; height: 200px;">
+                    <br>
+                    {!! Mapper::render() !!}
+                  </div>                                    
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">

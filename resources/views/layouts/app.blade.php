@@ -26,8 +26,9 @@
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNhDtTH7sJu6oiEykwmloD3En7NFst9Y4&callback=initMap"
+        type="text/javascript">
+    </script>
     {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link

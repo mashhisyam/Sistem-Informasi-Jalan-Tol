@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Mapper;
 
 
 class HomeController extends Controller
@@ -52,7 +53,8 @@ class HomeController extends Controller
     {
         return view("pages.profile", ['profile' => Auth()->user()]);
     }
-    function showContactForm(){
+    function showContactForm(){   
+        Mapper::map(106.890944,-6.142827);     
         return view('pages.contact');
     }
 
@@ -95,11 +97,12 @@ class HomeController extends Controller
             $mail->AltBody = $message;
 
             $mail->send();
-
+            Mapper::map(106.890944,-6.142827);
             $request->session()->flash('status', 'Terima kasih, kami sudah menerima email anda.');
             return view('pages.contact');
 
         } catch (Exception $e) {
+            Mapper::map(106.890944,-6.142827);
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         }
