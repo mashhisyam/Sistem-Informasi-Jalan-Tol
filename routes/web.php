@@ -31,3 +31,5 @@ Route::prefix('/beritatol')->group(function () {
     Route::get('/', [HomeController::class, 'newsTol'])->name('newstol');
     Route::get('/{id}', [HomeController::class, 'loadnews'])->name('shownews');
 });
+Route::get('/harga','HomeController@hargaTol');
+Route::get('/harga/{id}','HomeController@kotaAjax');

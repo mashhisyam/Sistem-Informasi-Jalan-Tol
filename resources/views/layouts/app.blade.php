@@ -20,6 +20,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/footerStyle.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,6 +30,7 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNhDtTH7sJu6oiEykwmloD3En7NFst9Y4&callback=initMap"
         type="text/javascript">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link

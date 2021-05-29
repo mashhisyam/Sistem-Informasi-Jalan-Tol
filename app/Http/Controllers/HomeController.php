@@ -9,7 +9,8 @@ use Illuminate\Support\Str;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Mapper;
-
+use App\Models\TarifTols;
+use App\Models\TarifKotas;
 
 class HomeController extends Controller
 {
@@ -106,5 +107,20 @@ class HomeController extends Controller
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         }
+    }
+
+    public function hargaTol(){
+        $tols = TarifTols::paginate(7);
+        $kotas = TarifKotas::pluck('nama_kota', 'id_kota');
+        return view('pages.harga', compact('tols','kotas'));
+    }
+
+    public function kotaAjax($id){
+        if($id == 0){
+            $tols = TarifTols::all();
+        }else{
+            $tols = TarifTols::where('id_kota','=',$id)->get();
+        }
+        return $tols;
     }
 }
