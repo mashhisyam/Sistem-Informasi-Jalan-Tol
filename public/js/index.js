@@ -1,3 +1,20 @@
+$(document).ready(() => {
+    var inGateSelect = document.getElementById("ingate");
+    inGateSelect.addEventListener("change", (e) => {
+        var outGate = document.getElementById("outgate");
+        outGate.innerHTML = "<option>loading....</option>";
+
+        $.ajax({
+            url: `/gate/out/${inGateSelect.value}`,
+            success: (data) => {
+                setTimeout(() => {
+                    outGate.innerHTML = data;
+                }, 1000);
+            },
+        });
+    });
+});
+
 function filterSelection(c) {
     var x, i;
     x = document.getElementsByClassName("column");

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gate;
+use App\Models\Tarif;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,10 +31,10 @@ class HomeController extends Controller
         $routeId = $request->get('rute');
         $inName = $request->get('ingate');
         $outName = $request->get('outgate');
-        $ingate = DB::table('tarif')->select(['masuk'])->groupBy('masuk')->get();
-        $outgate = DB::table('tarif')->select(['keluar'])->groupByRaw('keluar')->get();
+        $ingate = Tarif::select(['id', 'masuk'])->groupBy('masuk')->with('ingate')->get();
+        $outgate = [];
         if ($inName != null && $outName != null) {
-            $routeData = DB::table('tarif')->where([['masuk', $inName], ['keluar', $outName],])->first();
+            $routeData = Tarif::where([['masuk', $inName], ['keluar', $outName],])->with('ingate', 'outgate')->first();
         } else {
             $routeData = null;
             $routename = null;
@@ -54,13 +56,15 @@ class HomeController extends Controller
     {
         return view("pages.profile", ['profile' => Auth()->user()]);
     }
-    function showContactForm(){   
-        Mapper::map(106.890944,-6.142827);     
+    function showContactForm()
+    {
+        Mapper::map(106.890944, -6.142827);
         return view('pages.contact');
     }
 
-    function sendMail(Request $request){
-        
+    function sendMail(Request $request)
+    {
+
         $subject = "Contact dari " . $request->input('name');
         $name = $request->input('name');
         $emailAddress = $request->input('email');
@@ -69,57 +73,71 @@ class HomeController extends Controller
         $message = $request->input('message');
 
 
-        $mail = new PHPMailer();                             
+        $mail = new PHPMailer();
         try {
 
             // Pengaturan Server                              
-            $mail->isSMTP();                                     
-            $mail->Host = 'smtp.gmail.com';                  
-            $mail->SMTPAuth = true;                              
-            $mail->Username = 'acmilrizqy17@gmail.com';                 
-            $mail->Password = 'rizqyghaniyyu1987';                           
-            $mail->SMTPSecure = 'ssl';                           
-            $mail->Port = 465;                                    
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'acmilrizqy17@gmail.com';
+            $mail->Password = 'rizqyghaniyyu1987';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
 
             // Siapa yang mengirim email
             $mail->setFrom($emailAddress, $name);
 
             // Siapa yang akan menerima email
-            $mail->addAddress('acmilrizqy17@gmail.com', 'Rizqy Fadhilah');    
-                       
+            $mail->addAddress('acmilrizqy17@gmail.com', 'Rizqy Fadhilah');
+
 
             // ke siapa akan kita balas emailnya
             $mail->addReplyTo($emailAddress, $name);
-            
+
             //Content
-            $mail->isHTML(true);                                  
+            $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body    = $message;
             $mail->AltBody = $message;
 
             $mail->send();
-            Mapper::map(106.890944,-6.142827);
+            Mapper::map(106.890944, -6.142827);
             $request->session()->flash('status', 'Terima kasih, kami sudah menerima email anda.');
             return view('pages.contact');
-
         } catch (Exception $e) {
-            Mapper::map(106.890944,-6.142827);
+            Mapper::map(106.890944, -6.142827);
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         }
     }
 
-    public function hargaTol(){
-        $tols = TarifTols::paginate(7);
-        $kotas = TarifKotas::pluck('nama_kota', 'id_kota');
-        return view('pages.harga', compact('tols','kotas'));
+    public function gerbangKeluar($id)
+    {
+        if ($id === "null") {
+            return '<option selected value="null">Pilih tol masuk terlebih dahulu</option>';
+        }
+        $outGate = Tarif::select(['id', 'keluar'])->where('masuk', $id)->with('outgate')->get();
+        $outSelect = '';
+        foreach ($outGate as $key => $value) {
+            $outSelect .= '<option value=' . $value->keluar . '>' . $value->outgate[0]->nama_gerbang . '</option>';
+        }
+        return $outSelect;
     }
 
-    public function kotaAjax($id){
-        if($id == 0){
+    public function hargaTol()
+    {
+        $tols = TarifTols::paginate(7);
+        $kotas = TarifKotas::pluck('nama_kota', 'id_kota');
+        return view('pages.harga', compact('tols', 'kotas'));
+    }
+
+    public function kotaAjax($id)
+    {
+        if ($id == 0) {
             $tols = TarifTols::all();
-        }else{
-            $tols = TarifTols::where('id_kota','=',$id)->get();
+        } else {
+            $tols = TarifTols::where('id_kota', '=', $id)->get();
         }
         return $tols;
     }

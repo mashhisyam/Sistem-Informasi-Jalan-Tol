@@ -17,8 +17,8 @@ class CostSeeder extends Seeder
         DB::table('tarif')->insert(
             [
                 array(
-                    'masuk' => 'malang',
-                    'keluar' => 'pandaan',
+                    'masuk' => 1,
+                    'keluar' => 2,
                     'gol1' => 34500,
                     'gol2' => 52000,
                     'gol3' => 52000,
@@ -27,8 +27,8 @@ class CostSeeder extends Seeder
                     'gol6' => 0
                 ),
                 array(
-                    'masuk' => 'malang',
-                    'keluar' => 'purwodadi',
+                    'masuk' => 1,
+                    'keluar' => 4,
                     'gol1' => 20500,
                     'gol2' => 31000,
                     'gol3' => 31000,
@@ -37,8 +37,8 @@ class CostSeeder extends Seeder
                     'gol6' => 0
                 ),
                 array(
-                    'masuk' => 'malang',
-                    'keluar' => 'lawang',
+                    'masuk' => 1,
+                    'keluar' => 5,
                     'gol1' => 13500,
                     'gol2' => 20000,
                     'gol3' => 20000,
@@ -47,8 +47,8 @@ class CostSeeder extends Seeder
                     'gol6' => 0
                 ),
                 array(
-                    'masuk' => 'malang',
-                    'keluar' => 'singosari',
+                    'masuk' => 1,
+                    'keluar' => 3,
                     'gol1' => 7000,
                     'gol2' => 10500,
                     'gol3' => 10500,
@@ -57,8 +57,8 @@ class CostSeeder extends Seeder
                     'gol6' => 0
                 ),
                 array(
-                    'masuk' => 'malang',
-                    'keluar' => 'pakis',
+                    'masuk' => 1,
+                    'keluar' => 6,
                     'gol1' => 3000,
                     'gol2' => 4000,
                     'gol3' => 4000,

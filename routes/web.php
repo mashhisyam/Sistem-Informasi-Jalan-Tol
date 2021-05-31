@@ -25,11 +25,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
 Route::post('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
-Route::get('/contact',[HomeController::class,'showContactForm']);
-Route::post('/contact',[HomeController::class,'sendMail']);
+Route::get('/contact', [HomeController::class, 'showContactForm']);
+Route::post('/contact', [HomeController::class, 'sendMail']);
 Route::prefix('/beritatol')->group(function () {
     Route::get('/', [HomeController::class, 'newsTol'])->name('newstol');
     Route::get('/{id}', [HomeController::class, 'loadnews'])->name('shownews');
 });
-Route::get('/harga','HomeController@hargaTol');
-Route::get('/harga/{id}','HomeController@kotaAjax');
+Route::get('/harga', 'HomeController@hargaTol');
+Route::get('/harga/{id}', 'HomeController@kotaAjax');
+Route::get('/gate/out/{id}', [HomeController::class, 'gerbangKeluar']);

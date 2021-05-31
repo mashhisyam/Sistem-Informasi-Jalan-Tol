@@ -13,13 +13,13 @@
         <div class="features-row m-2 d-flex flex-row">
             <a href="{{url('beritatol')}}" class="feature-item my-2 mx-4 d-flex flex-column align-items-center">
                 <div class="feature-circle-item mb-3 flex-center-items">
-                    <img src="{{ asset('assets/images/icon-news.png') }}" alt="" srcset="">
+                    <img src="{{ asset('assets/images/icon-news.png') }}" class="h-75" alt="" srcset="">
                 </div>
                 <h4>Berita Tol</h4>
             </a>
             <a href="{{url('taksirtol')}}" class="feature-item my-2 mx-4 d-flex flex-column align-items-center">
                 <div class="feature-circle-item mb-3 flex-center-items">
-                    <img src="{{ asset('assets/images/icon-money.png') }}" alt="" srcset="">
+                    <img src="{{ asset('assets/images/icon-money.png') }}" class="h-75" alt="" srcset="">
                 </div>
                 <h4>Tarif Tol</h4>
             </a>

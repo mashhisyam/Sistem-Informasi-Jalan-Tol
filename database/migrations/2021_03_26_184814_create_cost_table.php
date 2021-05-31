@@ -15,8 +15,8 @@ class CreateCostTable extends Migration
     {
         Schema::create('tarif', function (Blueprint $table) {
             $table->id();
-            $table->string('masuk');
-            $table->string('keluar');
+            $table->integer('masuk')->index();
+            $table->integer('keluar')->index();
             $table->bigInteger('gol1', false);
             $table->bigInteger('gol2', false);
             $table->bigInteger('gol3', false);

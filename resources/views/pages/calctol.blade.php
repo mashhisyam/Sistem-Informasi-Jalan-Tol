@@ -26,11 +26,12 @@
                                     <option selected value="null">Pilih gerbang tol masuk</option>
                                     @foreach ($ingate as $item)
 
-                                    <option value="{{__($item->masuk)}}" @if($item->masuk == old('masuk') || $routedata
+                                    <option value="{{__($item->masuk)}}" @if($item->masuk == old('masuk') ||
+                                        $routedata
                                         != null && $routedata->masuk ==
                                         $item->masuk) selected
                                         @endif>
-                                        {{ Str::ucfirst($item->masuk) }}
+                                        {{ Str::ucfirst($item->ingate[0]->nama_gerbang) }}
                                     </option>
 
                                     @endforeach
@@ -39,17 +40,7 @@
                             <div class="input-box-wrapper my-3">
                                 <label>Gerbang keluar</label>
                                 <select class="input-box-text h-25 p-2" name="outgate" id="outgate">
-                                    <option selected value="null">Pilih gerbang tol keluar</option>
-                                    @foreach ($outgate as $item)
-
-                                    <option value="{{__($item->keluar)}}" @if($item->keluar == old('keluar') ||
-                                        $routedata != null && $routedata->keluar ==
-                                        $item->keluar) selected
-                                        @endif>
-                                        {{ Str::ucfirst($item->keluar) }}
-                                    </option>
-
-                                    @endforeach
+                                    <option selected value="null">Pilih gerbang masuk terlebih dahulu</option>
                                 </select>
                             </div>
                             <div class="btn-submit-wrapper d-flex justify-content-center">
@@ -68,13 +59,13 @@
                             <div class="p-2 w-100">
                                 <span>Gerbang Masuk</span>
                                 <div class="input-box-text">
-                                    <span>{{Str::ucfirst($routedata->masuk)}}</span>
+                                    <span>{{Str::ucfirst($routedata->ingate[0]->nama_gerbang)}}</span>
                                 </div>
                             </div>
                             <div class="p-2 w-100">
                                 <span>Gerbang Keluar</span>
                                 <div class="input-box-text">
-                                    <span>{{Str::ucfirst($routedata->keluar)}}</span>
+                                    <span>{{Str::ucfirst($routedata->outgate[0]->nama_gerbang)}}</span>
                                 </div>
                             </div>
                         </div>
