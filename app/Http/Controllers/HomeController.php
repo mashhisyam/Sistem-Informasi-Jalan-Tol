@@ -13,6 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 use Mapper;
 use App\Models\TarifTols;
 use App\Models\TarifKotas;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -56,6 +57,26 @@ class HomeController extends Controller
     {
         return view("pages.profile", ['profile' => Auth()->user()]);
     }
+
+    
+    public function edit($id)
+    {                
+        $profile = User::findorfail($id);
+        return view('pages.updateProfile', compact('profile')); 
+    }
+
+    public function update(Request $request, $id)
+    {
+        $profile = User::findorfail($id);
+        $profile->update([
+            'fullname' => $request->fullname,
+            'phonenumber' => $request->phonenumber,
+            'address' => $request->address,
+            'email' => $request->email
+        ]);
+        return redirect('profile')->with('toast_succes', 'Profile Berhasil Di Update');
+    }
+
     function showContactForm()
     {
         Mapper::map(106.890944, -6.142827);
@@ -73,15 +94,15 @@ class HomeController extends Controller
         $message = $request->input('message');
 
 
-        $mail = new PHPMailer();
+        $mail = new PHPMailer(true);
         try {
 
             // Pengaturan Server                              
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'acmilrizqy17@gmail.com';
-            $mail->Password = 'rizqyghaniyyu1987';
+            $mail->Username = 'aurorazhra30@gmail.com';
+            $mail->Password = 'auroradani';
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
@@ -89,7 +110,7 @@ class HomeController extends Controller
             $mail->setFrom($emailAddress, $name);
 
             // Siapa yang akan menerima email
-            $mail->addAddress('acmilrizqy17@gmail.com', 'Rizqy Fadhilah');
+            $mail->addAddress('aurorazhra30@gmail.com', 'Aurora Dani');
 
 
             // ke siapa akan kita balas emailnya

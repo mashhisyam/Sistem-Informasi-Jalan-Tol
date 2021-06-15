@@ -11,7 +11,7 @@
         <hr class="colorhr-bluedark">
         <div class="news-content-wrapper d-flex justify-content-center rounded p-4">
             <div class="news-content d-flex flex-column w-75 p-3" style="height: fit-content;">
-                <div class="container-fluid">
+                <div class="container-fluid">                    
                     <h3>{{__($newsdata->title)}}</h3>
                     <hr class="colorhr-bluedark">
                     <p>{{__($newsdata->created_at)}}</p>

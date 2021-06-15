@@ -34,7 +34,10 @@
                     </a>
                 </ul>
                 @endforeach
-
+                <div class="btn-submit-wrapper d-flex justify-content-center">
+                    <a href="#" class="btn btn-yellow">Tambah Berita</a>
+                </div>
+                
             </ol>
         </div>
     </div>

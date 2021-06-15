@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+// use App\Http\Livewire\MapLocation;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
 Route::post('/taksirtol', [HomeController::class, 'calcTol'])->name("taksirtol");
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+Route::get('/edit-profile/{id}', [HomeController::class, 'edit'])->name('edit');
+Route::post('/update-profile/{id}', [HomeController::class, 'update'])->name('update');
 Route::get('/contact', [HomeController::class, 'showContactForm']);
 Route::post('/contact', [HomeController::class, 'sendMail']);
 Route::prefix('/beritatol')->group(function () {
@@ -34,3 +37,6 @@ Route::prefix('/beritatol')->group(function () {
 Route::get('/harga', 'HomeController@hargaTol');
 Route::get('/harga/{id}', 'HomeController@kotaAjax');
 Route::get('/gate/out/{id}', [HomeController::class, 'gerbangKeluar']);
+
+
+// Route::get('/map', MapLocation::class);
