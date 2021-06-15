@@ -11,7 +11,7 @@
 
     {{-- content --}}
     <div class="m-3">
-        <h2 class="color-bluedark font-weight-bold">Berita Tol</h2>
+        <h2 class="color-bluedark font-weight-bold">Berita Tol</h2>        
         <hr class="colorhr-bluedark">
 
 
@@ -23,7 +23,7 @@
                 <ul class="content-item rounded p-2">
                     <a href="{{route('shownews', ['id' => $item->id])}}">
                         <div class="d-flex align-items-stretch ">
-                            <img class="rounded w-50 img-fluid" src="{!!asset($item->poster)!!}">
+                            <img class="rounded w-50 img-fluid" src="{{ url($item->poster) }}">
                             <div class="mx-2">
                                 <p class="mb-1"><strong>{!!$item->title!!}</strong></p>
                                 <hr class="colorhr-bluedark mb-1">
@@ -33,13 +33,15 @@
                         </div>
                     </a>
                 </ul>
-                @endforeach
-                <div class="btn-submit-wrapper d-flex justify-content-center">
-                    <a href="#" class="btn btn-yellow">Tambah Berita</a>
-                </div>
-                
+                @endforeach                
             </ol>
         </div>
+
+        @if (Auth::user()->id == 1)
+            <div class="btn-submit-wrapper d-flex justify-content-center">
+                <a href="{{ url('create-berita') }}" class="btn btn-yellow">Tambah Berita</a>
+            </div>
+        @endif                
     </div>
 </div>
 

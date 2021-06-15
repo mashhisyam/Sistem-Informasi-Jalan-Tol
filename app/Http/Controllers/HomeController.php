@@ -14,6 +14,7 @@ use Mapper;
 use App\Models\TarifTols;
 use App\Models\TarifKotas;
 use App\Models\User;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -53,6 +54,29 @@ class HomeController extends Controller
         $reletedNews = DB::table('news')->select("*")->whereNotIn('id', [$id])->inRandomOrder()->limit(2)->get();
         return view("pages.viewnews", ["newsdata" => $newsdata, "releted" => $reletedNews]);
     }
+
+    public function createNews()
+    {
+        return view('pages.tambahBerita');
+    }
+
+    public function storeNews(Request $request)
+    {
+        $nm = $request->poster;
+        $namaFile = time().rand(100,999).".".$nm->getClientOriginalName();
+
+            $dtUpload = new News;
+            $dtUpload->poster = $namaFile;
+            $dtUpload->title = $request->title;
+            $dtUpload->content = $request->content;
+
+            $nm->move(public_path().'/assets/images/article', $namaFile);
+            $dtUpload->save();
+
+        $newsDatas = DB::table("news")->get("*");
+        return view("pages.newstol", ["newsDatas" => $newsDatas]);
+    }
+
     public function profile()
     {
         return view("pages.profile", ['profile' => Auth()->user()]);
